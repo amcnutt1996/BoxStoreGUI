@@ -8,16 +8,16 @@ public class AddItemWindow{
     private final JComboBox<String> typeItems;
     private final JTextField skuInput;
     private final JTextField itemNameInput;
-    private JTextField itemPriceInput;
+    private final JTextField itemPriceInput;
     private final JFrame addItemFrame;
 
-    public AddItemWindow(StoreManager manager){
+    public AddItemWindow(JFrame parent, StoreManager manager){
         this.storeManager = manager;
 
         addItemFrame = new JFrame("Add New Item");
         addItemFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         addItemFrame.setSize(400,300);
-        addItemFrame.setLocationRelativeTo(null);
+        addItemFrame.setLocationRelativeTo(parent);
         addItemFrame.setLayout(null);
         addItemFrame.setVisible(true);
 
@@ -157,41 +157,43 @@ public class AddItemWindow{
                     addValidatedItem(item);
                 }
                 case "Not Shelf Stable Food" -> {
-
+                    System.out.println("not shelf stable food");
                 }
 
                 case "Furniture" -> {
-
+                    System.out.println("furniture");
                 }
 
                 case "Cleaning Product" -> {
-
+                    System.out.println("Cleaning product");
                 }
 
                 case "Phone" -> {
-
+                    System.out.println("Phone");
                 }
 
                 case "TV" -> {
-
+                    System.out.println("TV");
                 }
 
                 case "Laptop" -> {
-
+                    System.out.println("Laptop");
                 }
 
                 case "Outer Wear" -> {
-
+                    System.out.println("Outerwear");
                 }
 
                 case "Shirt" -> {
-
+                    System.out.println("shirt");
                 }
 
                 case "Shoes" -> {
-
+                    System.out.println("Shoes");
                 }
+                default -> {System.out.println("Something fucked up");}
             }
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(addItemFrame, "Please enter valid numbers for the SKU and Price");
         }
@@ -199,6 +201,13 @@ public class AddItemWindow{
 
     public void addValidatedItem(StoreItem item){
         storeManager.addItemToList(item);
+        typeItems.setSelectedIndex(0);
+        itemNameInput.setText("Enter Item Name");
+        itemNameInput.setForeground(Color.GRAY);
+        itemPriceInput.setText("Enter Item Price");
+        itemPriceInput.setForeground(Color.GRAY);
+        skuInput.setText("Enter Sku Number");
+        skuInput.setForeground(Color.GRAY);
         System.out.println("Item Added!: List Size: " + storeManager.getListOfAllItems().size());
     }
 

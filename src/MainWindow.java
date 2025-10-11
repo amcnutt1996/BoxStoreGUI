@@ -5,11 +5,12 @@ import java.awt.event.ActionListener;
 
 public class MainWindow implements ActionListener {
     StoreManager storeManager = new StoreManager();
+    JFrame mainWindow;
 
     //constructor for mainWindow Object
     public MainWindow(){
         //JFrame
-        JFrame mainWindow = new JFrame();
+        mainWindow = new JFrame();
         mainWindow.setTitle("Box Store Inventory Manager");
         mainWindow.setLayout(null);
         mainWindow.setSize(400,125);
@@ -54,10 +55,10 @@ public class MainWindow implements ActionListener {
     }
 
     public void addItem(){
-        AddItemWindow addWindow = new AddItemWindow(storeManager);
+        AddItemWindow addWindow = new AddItemWindow(mainWindow, storeManager);
     }
     public void showItems(){
-        ShowItemWindow showWindow = new ShowItemWindow((storeManager));
+        ShowItemWindow showWindow = new ShowItemWindow(mainWindow, storeManager);
     }
 
 }

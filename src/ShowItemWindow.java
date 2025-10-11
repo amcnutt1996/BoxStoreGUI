@@ -9,11 +9,11 @@ public class ShowItemWindow {
     private final DefaultTableModel tableModel;
     private final JTable itemTable;
 
-    public ShowItemWindow(StoreManager manager){
+    public ShowItemWindow(JFrame parent, StoreManager manager){
         this.storeManager = manager;
         JFrame showItems = new JFrame("Store Item Database");
         showItems.setSize(500,500);
-        showItems.setLocationRelativeTo(null);
+        showItems.setLocationRelativeTo(parent);
         showItems.setResizable(false);
         showItems.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         showItems.setLayout(null);

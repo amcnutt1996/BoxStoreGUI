@@ -47,7 +47,7 @@ public class ShowItemWindow {
 
         JButton removeButton = new JButton("Remove Selected Item");
         removeButton.setBounds(150, 400, 200,70);
-        removeButton.addActionListener(e -> {
+        removeButton.addActionListener(_ -> {
             int selectedRow = itemTable.getSelectedRow();
             if (selectedRow != -1) {
                 storeManager.getListOfAllItems().remove(selectedRow);
@@ -98,9 +98,7 @@ public class ShowItemWindow {
 
         JButton closeButton = new JButton("Close");
         closeButton.setBounds(100, 150, 100, 50);
-        closeButton.addActionListener(e -> {
-            infoBox.dispose();
-        });
+        closeButton.addActionListener(_ -> infoBox.dispose());
 
         infoBox.add(skuLabel);
         infoBox.add(nameLabel);

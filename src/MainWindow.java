@@ -55,10 +55,10 @@ public class MainWindow implements ActionListener {
     }
 
     public void addItem(){
-        AddItemWindow addWindow = new AddItemWindow(mainWindow, storeManager);
+        new AddItemWindow(mainWindow, storeManager);
     }
     public void showItems(){
-        ShowItemWindow showWindow = new ShowItemWindow(mainWindow, storeManager);
+        new ShowItemWindow(mainWindow, storeManager);
     }
 
 }
